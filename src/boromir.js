@@ -1,5 +1,7 @@
 /**
- * NoDom.js - represent a DOM with immutable javascript data structures
+ * "One does not simply mutate the DOM" - Boromir
+ *
+ * Boromir - represent a DOM with immutable javascript data structures
  * (arrays and objects), transform the representation with functional
  * algorithms (no update in place), and efficiently update the DOM from
  * the transformed representation.
@@ -214,6 +216,8 @@ define(['dom', 'maps'], function (Dom, Maps) {
 		}
 		return modified;
 	};
+	Element.prototype.transformChildren = function (children) {
+	};
 	Element.prototype._updateDom = function (doc) {
 		var domNode = this._domNode;
 		var modified = this._isModified;
@@ -260,6 +264,9 @@ define(['dom', 'maps'], function (Dom, Maps) {
 			text = this._text = this._domNode.data;
 		}
 		return text;
+	};
+	Text.prototype.length = function () {
+		return this.text().length;
 	};
 	Text.prototype.withText = function (text) {
 		return new Text(this._domNode, text, true);
