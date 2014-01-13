@@ -32,6 +32,11 @@
  * as-if algorithms - insert content into the tree without mutating the
  *   DOM, and apply algorithms as if the content was there, and
  *   interpret the results
+ *
+ * schema validation decoupled from algorithms (invalid DOM structure
+ *   never inserted into the DOM, and multiple anti-violation strategies
+ *   possible like don't mutate anything on violation, or automatically
+ *   clean invalid nesting and try to preserve valid content).
  * 
  * immutable datastructure - functional programming - no suprising
  *   mutation effects in an algorithm (impossible with the DOM).
