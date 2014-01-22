@@ -216,7 +216,11 @@ define(['dom', 'maps'], function (Dom, Maps) {
 		}
 		return modified;
 	};
-	Element.prototype.transformChildren = function (children) {
+	Element.prototype.transformChildren = function (fn) {
+		return [node, transform];
+	};
+	Element.prototype.reverseTransform = function (transform) {
+		return node;
 	};
 	Element.prototype._updateDom = function (doc) {
 		var domNode = this._domNode;
