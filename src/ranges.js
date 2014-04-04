@@ -129,7 +129,9 @@ define([
 			return create(pos.offsetNode, pos.offset);
 		}
 		if (doc.elementFromPoint) {
-			throw 'fromPoint() unimplemented for this browser';
+			var elem = doc.elementFromPoint(x,y);
+			return create(elem);
+			//throw 'fromPoint() unimplemented for this browser';
 		}
 	}
 
