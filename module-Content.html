@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: Content</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: Content</h1>
+
+    
+
+
+
+<section>
+
+<header>
+    <h2>
+    Content
+    </h2>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+
+    
+        
+
+        
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="content.js.html">content.js</a>, <a href="content.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="ALLOWED_CHILDREN"><span class="type-signature">&lt;inner> </span>ALLOWED_CHILDREN<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The complete set of HTML(5) elements, mapped to their respective content
+models, which define what types of HTML nodes are permitted as their
+children.
+
+http://www.w3.org/html/wg/drafts/html/master/index.html#elements-1
+http://www.whatwg.org/specs/web-apps/current-work/#elements-1
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="content.js.html">content.js</a>, <a href="content.js.html#line83">line 83</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="allowsNesting"><span class="type-signature">&lt;inner> </span>allowsNesting<span class="signature">(outer, inner)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Checks whether the node name `outer` is allowed to contain in a node with
+the node name `inner` as a direct descendant based on the HTML5
+specification.
+
+Reference:
+http://www.w3.org/html/wg/drafts/html/master/index.html#elements-1
+http://www.whatwg.org/specs/web-apps/current-work/#elements-1
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>outer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The node which would contain the other.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>inner</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The node to be nested a child of `outer`.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="content.js.html">content.js</a>, <a href="content.js.html#line561">line 561</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    True if `inner` is allowed a direct child of `outer`.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-accessor.html">accessor</a></li><li><a href="module-Aloha.html">Aloha</a></li><li><a href="module-Arrays.html">Arrays</a></li><li><a href="module-Assert.html">Assert</a></li><li><a href="module-Blocks.html">Blocks</a></li><li><a href="module-Boundaries.html">Boundaries</a></li><li><a href="module-BoundaryMarkers.html">BoundaryMarkers</a></li><li><a href="module-Browsers.html">Browsers</a></li><li><a href="module-Colors.html">Colors</a></li><li><a href="module-Content.html">Content</a></li><li><a href="module-Cursors.html">Cursors</a></li><li><a href="module-Dom.html">Dom</a></li><li><a href="module-DragDrop.html">DragDrop</a></li><li><a href="module-Editables.html">Editables</a></li><li><a href="module-Editing.html">Editing</a></li><li><a href="module-Ephemera.html">Ephemera</a></li><li><a href="module-Events.html">Events</a></li><li><a href="module-Xhtml.html">Xhtml</a></li></ul><h3>Global</h3><ul><li><a href="global.html#define">define</a></li><li><a href="global.html#require">require</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Mon Apr 07 2014 15:20:51 GMT+0400 (MSK)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

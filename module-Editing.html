@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: Editing</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: Editing</h1>
+
+    
+
+
+
+<section>
+
+<header>
+    <h2>
+    Editing
+    </h2>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+
+    
+        
+
+        
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="ascendWalkSiblings"><span class="type-signature">&lt;inner> </span>ascendWalkSiblings<span class="signature">(ascendNodes, atEnd, carryDown)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Walks the siblings of each node in the given array (see
+walkSiblings()).
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ascendNodes</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">from lowest descendant to topmost parent. The
+topmost parent and its siblings will not be walked over.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>atEnd</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">indicates that the position to ascend from is not at
+ascendNodes[0], but at the end of ascendNodes[0] (meaning that
+all of ascendNodes[0]'s children will be walked over as well).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>carryDown</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">is invoked on each node in the given array,
+allowing the carrying down of a context value. May return null
+to return the carryDown value from above.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line85">line 85</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="break_"><span class="type-signature">&lt;inner> </span>break_<span class="signature">(liveRange, breaker, linebreak)</span><span class="type-signature"> &rarr; {Array.&lt;Boundary>}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Creates a visual line break at the end position of the given range.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>liveRange</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Range</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>breaker</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>linebreak</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line1342">line 1342</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Boundary></span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="delete_"><span class="type-signature">&lt;inner> </span>delete_<span class="signature">(range)</span><span class="type-signature"> &rarr; {Array.&lt;Boundary>}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Removes the content inside the given range.
+
+“If you delete a paragraph-boundary, the result seems to be consistent:
+The leftmost block 'wins', and the content of the rightmost block is
+included in the leftmost:
+
+<h1>Overskrift</h1><p>[]Text</p>
+
+“If delete is pressed, this is the result:
+
+<h1>Overskrift[]Text</h1>”
+-- http://dev.opera.com/articles/view/rich-html-editing-in-the-browser-part-1
+
+TODO:
+put &nbsp; at beginning and end position in order to preserve spaces at
+these locations when deleting. also consider propping <p></p>'s
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>range</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Range</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line1279">line 1279</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://dvcs.w3.org/hg/editing/raw-file/tip/editing.html#deleting-the-selection">https://dvcs.w3.org/hg/editing/raw-file/tip/editing.html#deleting-the-selection</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Boundary></span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="format"><span class="type-signature">&lt;inner> </span>format<span class="signature">(styleName, opts)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Ensures the given range is wrapped by elements that have a given
+CSS style set.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>styleName</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a CSS style name.
+       Please note that not-inherited styles currently may (or
+       may not) cause undesirable results.  See also
+       Html.isStyleInherited().
+
+       The underline style can't be unformatted inside a
+       non-clearable ancestor ("text-decoration: none" doesn't do
+       anything as the underline will be drawn by the ancestor).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">all options supported by wrapElem() as well as the following:
+       createWrapper - a function that takes a style value and
+       returns a new empty wrapper node that has the style value
+       applied.
+
+       isPrunable - a function that returns true if a given node,
+       after some style was removed from it, can be removed
+       entirely. That's usually the case if the given node is
+       equivalent to an empty wrapper.
+
+       isStyleEqual - a function that returns true if two given
+       style values are equal.
+       TODO currently we just use strict equals by default, but
+            we should implement for each supported style it's own
+            equals function.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line1062">line 1062</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="mutate"><span class="type-signature">&lt;inner> </span>mutate<span class="signature">(liveRange, formatter)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Walks around the boundary of range and invokes the given
+functions with the nodes it encounters.
+
+clearOverride    - invoked for partially contained nodes.
+clearOverrideRec - invoked for top-level contained nodes.
+pushDownOverride - invoked for left siblings of ancestors
+  of startContainer[startOffset], and for right siblings of
+  ancestors of endContainer[endOffset].
+setContext       - invoked for top-level contained nodes.
+
+The purpose of the walk is to either push-down or set a context
+on all nodes within the range, and push-down any overrides that
+exist along the bounderies of the range.
+
+An override is a context that overrides the context to set.
+
+Pushing-down a context means that an existing context-giving
+ancestor element will be reused, if available, and setContext()
+will not be invoked.
+
+Pushing-down an override means that ancestors of the range's
+start or end containers will have their overrides cleared and the
+subset of the ancestors' children that is not contained by the
+range will have the override applied via pushDownOverride().
+
+This algorithm will not by itself mutate anything, or depend on
+any mutations by the given functions.
+
+clearOverride, clearOverideRec, setContext, pushDownContext may
+mutate the given node and it's previous siblings, and may insert
+nextSiblings, but must not mutate the next sibling of the given
+node, and must return the nextSibling of the given node (the
+nextSibling before any mutations).
+
+When setContext is invoked with hasOverrideAncestor, it is for
+example when a bold element is at the same time the upper
+boundary (for example when the bold element itself is the editing
+host) and an attempt is made to set a non-bold context inside the
+bold element. To work around this, setContext() could force a
+non-bold context by wrapping the node with a <span
+style="font-weight: normal">. See hasOverrideAncestor below.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>liveRange</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">range's boundary points should be between nodes
+(Mutation.splitTextContainers).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>formatter</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a map with the following properties
+  isUpperBoundary(node) - identifies exclusive upper
+  boundary element, only elements below which will be modified.
+
+  getOverride(node) - returns a node's override, or null/undefined
+  if the node does not provide an override. The topmost node for
+  which getOverride returns a non-null value is the topmost
+  override. If there is a topmost override, and it is below the
+  upper boundary element, it will be cleared and pushed down.
+  Should return a non-null value for any node for which
+  hasContext(node) returns true.
+
+  clearOverride(node) - should clear the given node of an
+  override. The given node may or may not have an override
+  set. Will be invoked shallowly for all ancestors of start and end
+  containers (up to isUpperBoundary or hasContext). May perform
+  mutations as explained above.
+
+  clearOverrideRec(node) - like clearOverride but should clear
+  the override recursively. If not provided, clearOverride will
+  be applied recursively.
+
+  pushDownOverride(node, override) - applies the given
+  override to node. Should check whether the given node doesn't
+  already provide its own override, in which case the given
+  override should not be applied. May perform mutations as
+  explained above.
+
+  hasContext(node) - returns true if the given node
+  already provides the context to set.
+
+  setContext(node, override, hasOverrideAncestor) - applies the context
+  to the given node. Should clear overrides recursively. Should
+  also clear context recursively to avoid unnecessarily nested
+  contexts. hasOverrideAncestor is true if an override is in effect
+  above the given node (see explanation above). May perform
+  mutations as explained above.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line335">line 335</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="normalizeBoundary"><span class="type-signature">&lt;inner> </span>normalizeBoundary<span class="signature">(point)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Tries to move the given boundary to the start of line, skipping over any
+unrendered nodes, or if that fails to the end of line (after a br
+element if present), and for the last line in a block, to the very end
+of the block.
+
+If the selection is inside a block with only a single empty line (empty
+except for unrendered nodes), and both boundary points are normalized,
+the selection will be collapsed to the start of the block.
+
+For some operations it's useful to think of a block as a number of
+lines, each including its respective br and any preceding unrendered
+whitespace and in case of the last line, also any following unrendered
+whitespace.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Cursor</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line1148">line 1148</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    True if the cursor is moved.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="pushDownContext"><span class="type-signature">&lt;inner> </span>pushDownContext<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Pushes down an implied context above or at pushDownFrom to the
+given range by clearing all overrides from pushDownFrom
+(inclusive) to range.commonAncestorContainer, and clearing all
+overrides inside and along the range's boundary (see
+walkBoundaryInsideOutside()), invoking pushDownOverride on all
+siblings of the range boundary that are not contained in it.
+
+Requires range's boundary points to be between nodes
+(Mutation.splitTextContainers).
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line205">line 205</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="split"><span class="type-signature">&lt;inner> </span>split<span class="signature">(liveRange)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Splits the ancestors above the given range's start and end points.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>liveRange</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line1240">line 1240</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="trimExpandBoundaries"><span class="type-signature">&lt;inner> </span>trimExpandBoundaries<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Ensures that the given boundaries are neither in start nor end positions.
+In other words, after this operation, both will have preceding and
+following siblings.
+
+Expansion/trimming can be controlled via expandUntil and trimUntil, but
+may cause one or both of the boundaries to remain in start or end
+position.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line1086">line 1086</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="walkBoundaryInsideOutside"><span class="type-signature">&lt;inner> </span>walkBoundaryInsideOutside<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Simplifies walkBoundaryLeftRightInbetween from left/right/inbetween to just inside/outside.
+
+Requires range's boundary points to be between nodes
+(Mutation.splitTextContainers).
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line190">line 190</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="walkBoundaryLeftRightInbetween"><span class="type-signature">&lt;inner> </span>walkBoundaryLeftRightInbetween<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Walks the boundary of the range.
+
+The range's boundary starts at startContainer/startOffset, goes
+up to to the commonAncestorContainer's child above or equal
+startContainer/startOffset, continues to the
+commonAnestorContainer's child above or equal to
+endContainer/endOffset, and goes down again to
+endContainer/endOffset.
+
+Requires range's boundary points to be between nodes
+(Mutation.splitTextContainers).
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line137">line 137</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="walkSiblings"><span class="type-signature">&lt;inner> </span>walkSiblings<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Walks the siblings of the given child, calling before for
+siblings before the given child, after for siblings after the
+given child, and at for the given child.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line58">line 58</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="wrapElem"><span class="type-signature">&lt;inner> </span>wrapElem<span class="signature">(liveRange, nodeName, remove, opts)</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Ensures the given range is wrapped by elements with a given nodeName.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>liveRange</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Range</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The range of the current selection.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the tag that should serve as the
+                         wrapping node.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>remove</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optional flag, which when set to false will cause
+                        the given markup to be removed (unwrapped) rather
+                        then set.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A map of options (all optional):
+       createWrapper - a function that returns a new empty
+       wrapper node to use.
+
+       isReusable - a function that returns true if a given node,
+       already in the DOM at the correct place, can be reused
+       instead of creating a new wrapper node. May be merged with
+       other reusable or newly created wrapper nodes.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="editing.js.html">editing.js</a>, <a href="editing.js.html#line1018">line 1018</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-accessor.html">accessor</a></li><li><a href="module-Aloha.html">Aloha</a></li><li><a href="module-Arrays.html">Arrays</a></li><li><a href="module-Assert.html">Assert</a></li><li><a href="module-Blocks.html">Blocks</a></li><li><a href="module-Boundaries.html">Boundaries</a></li><li><a href="module-BoundaryMarkers.html">BoundaryMarkers</a></li><li><a href="module-Browsers.html">Browsers</a></li><li><a href="module-Colors.html">Colors</a></li><li><a href="module-Content.html">Content</a></li><li><a href="module-Cursors.html">Cursors</a></li><li><a href="module-Dom.html">Dom</a></li><li><a href="module-DragDrop.html">DragDrop</a></li><li><a href="module-Editables.html">Editables</a></li><li><a href="module-Editing.html">Editing</a></li><li><a href="module-Ephemera.html">Ephemera</a></li><li><a href="module-Events.html">Events</a></li><li><a href="module-Xhtml.html">Xhtml</a></li></ul><h3>Global</h3><ul><li><a href="global.html#define">define</a></li><li><a href="global.html#require">require</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Mon Apr 07 2014 15:20:51 GMT+0400 (MSK)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

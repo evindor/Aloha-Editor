@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: Ephemera</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: Ephemera</h1>
+
+    
+
+
+
+<section>
+
+<header>
+    <h2>
+    Ephemera
+    </h2>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+
+    
+        
+
+        
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="attributes"><span class="type-signature">&lt;inner> </span>attributes<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Registers ephemeral attributes by attribute name.
+
+Similar to classes() except applies to entire attributes instead of
+individual classes in the class attribute.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line111">line 111</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="checkCommonSubstr"><span class="type-signature">&lt;inner> </span>checkCommonSubstr<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Checks whether the given classes contain the substring common to all
+ephemeral classes. If the check fails, an warning will be logged and the
+substring will be set to the empty string which voids the performance
+improvement the common substring would otherwise have gained.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line66">line 66</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="classes"><span class="type-signature">&lt;inner> </span>classes<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Registers ephemeral classes.
+
+An ephemeral class is a non-content class that will be pruned from the
+from the result of editable.getContents().
+
+The given classes should contain the string 'aloha-' to get the benefit
+of a performance optimization.
+
+Returns a map that contains all classes that were ever registered with
+this function.
+
+Multiple classes may be specified. If none are specified, just returns
+the current ephemeral classes map without modifying it.
+
+Also see ephemera().
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line93">line 93</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="ephemera"><span class="type-signature">&lt;inner> </span>ephemera<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Provides access to the global ephemera registry.
+
+If the given argument is not null, sets the global ephemera registry to
+the given value and returns it. Otherwise, just returns the global
+registry.
+
+The given/returned value has the following properties:
+
+The given map may have the following entries
+
+classMap - a map from class name to the value true.
+           all classes must have a "aloha-" prefix.
+           Use Ehpemera.attributes() to set classes without "aloha-" prefix.
+
+attrMap  - a map from attribute name to the value true or to an array of
+           element names. If an array of elements is specified, the
+           attribute will only be considered ephemeral if it is found on
+           an element in the array.
+
+attrRxs  - an array of regexes (in object - not string - form: /[a-z].../)
+
+pruneFns - an array of functions that will be called at each pruning step.
+
+When a DOM tree is pruned with prune(elem) without an emap argument, the
+global registry maintained with classes() attributes() and ephemera() is
+used as a default map. If an emap argument is specified, the global
+registry will be ignored and the emap argument will be used instead.
+
+When a DOM tree is pruned with prune()
+- classes specified by classMap will be removed
+- attributes specified by attrMap or attrRxs will be removed
+- functions specified by pruneFns will be called as the DOM tree is
+  descended into (pre-order), with each node (element, text, etc.) as a
+  single argument. The function is free to modify the element and return
+  it, or return a new element which will replace the given element in the
+  pruned tree. If null or undefined is returned, the element will be
+  removed from the tree. As per contract of maps.walkDomInplace, it is
+  allowed to insert/remove children in the parent node as long as the
+  given node is not removed.
+
+Also see classes() and attributes().
+
+Note that removal of attributes doesn't always work on IE7 (in rare
+special cases). The dom-to-xhtml plugin can reliably remove ephemeral
+attributes during the serialization step.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line169">line 169</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isAttrEphemeral"><span class="type-signature">&lt;inner> </span>isAttrEphemeral<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Determines whether the given attribute of the given element is ephemeral
+according to the given emap.
+
+See Ephemera.ephemera() for an explanation of attrMap and attrRxs.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line292">line 292</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="markAttr"><span class="type-signature">&lt;inner> </span>markAttr<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Marks the attribute of an element as ephemeral.
+
+The attribute will be removed from the element when the prune function is
+called on it.
+
+Multiple attributes can be passed at the same time be separating them
+with a space.
+
+Adds the class 'aloha-ephemera-attr' to the given element. Also adds or
+modifies the 'data-aloha-ephemera-attr' attribute, and adds to it the
+name of the given attribute.
+
+These modifications can be made directly without recurse to this
+function, if that is more convenient.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line212">line 212</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="markElement"><span class="type-signature">&lt;inner> </span>markElement<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Marks an element as ephemeral.
+
+The element will be completely removed when the prune function is called
+on it.
+
+Adds the class 'aloha-ephemera' to the given element.
+
+The class 'aloha-ephemera' can also be added directly without recurse to
+this function, if that is more convenient.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line192">line 192</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="markFiller"><span class="type-signature">&lt;inner> </span>markFiller<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Marks an element as ephemeral, excluding subnodes.
+
+Adds the class 'aloha-ephemera-filler' to the given element.
+
+The class 'aloha-ephemera-filler' may also be added directly,
+without recurse to this function, if that is more convenient.
+
+See wrapper()
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line260">line 260</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="markWrapper"><span class="type-signature">&lt;inner> </span>markWrapper<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Marks an element as a ephemeral, excluding subnodes.
+
+The element will be removed when the prune function is called on it, but
+any children of the wrapper element will remain in its place.
+
+A wrapper is an element that wraps a single non-ephemeral element. A
+filler is an element that is wrapped by a single non-ephemeral element.
+This distinction is not important for the prune function, which behave
+the same for both wrappers and fillers, but it makes it easier to build
+more advanced content inspection algorithms (also see note at the header
+of ephemeral.js).
+
+Adds the class 'aloha-ephemera-wrapper' to the given element.
+
+The class 'aloha-ephemera-wrapper' may also be added directly, without
+recurse to this function, if that is more convenient.
+
+NB: a wrapper element must not wrap a filler element. Wrappers and
+    fillers are ephermeral. A wrapper must always wrap a single
+    _non-ephemeral_ element, and a filler must always fill a single
+    _non-ephemeral_ element.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line246">line 246</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="prune"><span class="type-signature">&lt;inner> </span>prune<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Prunes the given element of all ephemeral data.
+
+Elements marked with Ephemera.markElement() will be removed.
+Attributes marked with Ephemera.markAttr() will be removed.
+Elements marked with Ephemera.markWrapper() or Ephemera.markFiller() will
+be replaced with their children.
+
+See ephemera() for an explanation of the emap argument.
+
+All properties of emap, if specified, are required, but may be empty.
+
+The element is modified in-place and returned.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line382">line 382</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="pruneElem"><span class="type-signature">&lt;inner> </span>pruneElem<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Prunes an element of attributes and classes or removes the element by
+returning false.
+
+Elements attributes and classes can either be marked as ephemeral, in
+which case the element itself will contain the prune-info, or they can be
+specified as ephemeral with the given emap.
+
+See ephemera() for an explanation of the emap argument.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line328">line 328</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="pruneEmapAttrs"><span class="type-signature">&lt;inner> </span>pruneEmapAttrs<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Prunes attributes specified with either emap.attrMap or emap.attrRxs.
+See ephemera().
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line310">line 310</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="pruneMarkedAttrs"><span class="type-signature">&lt;inner> </span>pruneMarkedAttrs<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Prunes attributes marked as ephemeral with Ephemera.attributes() from the
+given element.
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ephemera.js.html">ephemera.js</a>, <a href="ephemera.js.html#line268">line 268</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-accessor.html">accessor</a></li><li><a href="module-Aloha.html">Aloha</a></li><li><a href="module-Arrays.html">Arrays</a></li><li><a href="module-Assert.html">Assert</a></li><li><a href="module-Blocks.html">Blocks</a></li><li><a href="module-Boundaries.html">Boundaries</a></li><li><a href="module-BoundaryMarkers.html">BoundaryMarkers</a></li><li><a href="module-Browsers.html">Browsers</a></li><li><a href="module-Colors.html">Colors</a></li><li><a href="module-Content.html">Content</a></li><li><a href="module-Cursors.html">Cursors</a></li><li><a href="module-Dom.html">Dom</a></li><li><a href="module-DragDrop.html">DragDrop</a></li><li><a href="module-Editables.html">Editables</a></li><li><a href="module-Editing.html">Editing</a></li><li><a href="module-Ephemera.html">Ephemera</a></li><li><a href="module-Events.html">Events</a></li><li><a href="module-Xhtml.html">Xhtml</a></li></ul><h3>Global</h3><ul><li><a href="global.html#define">define</a></li><li><a href="global.html#require">require</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Mon Apr 07 2014 15:20:51 GMT+0400 (MSK)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

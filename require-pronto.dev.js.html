@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: require-pronto.dev.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: require-pronto.dev.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+// depends on require-pronto.js
+
+/**
+ * "maximum call stack size exceeded" messages are indicative of a
+ * recursive dependency.
+ *
+ * Supports the synchronous convention var instance = require('module');
+ */
+var require = (function (wrappedRequire) {
+	var waiting = {};
+
+	function done(module) {
+		var fns = waiting[module],
+		    i;
+		if (!define.defs[module]) {
+			throw 'module "' + module + '" doesn\'t contain a correct define';
+		}
+		if (fns) {
+			// Will not be loaded again since it is already defined, so let it
+			// be garbage collected.
+			delete waiting[module];
+			for (i = 0; i &lt; fns.length; i++) {
+				fns[i]();
+			}
+		}
+	}
+
+	function load(module, fn, path) {
+		var url;
+		if (define.defs[module]) {
+			// already loaded
+			fn();
+			return;
+		}
+		if (!waiting[module]) {
+			waiting[module] =  [];
+			if (null != path) {
+				url = path + '/' + module + '.js';
+			} else {
+				url = module + '.js';
+				if (require.urlPrefix) {
+					url = require.urlPrefix + url;
+				}
+			}
+			document.write('&lt;script src="' + url + '" data-pronto-name="' + module + '">&lt;/script>');
+		}
+		waiting[module].push(fn);
+	}
+
+	function nthCall(n, fn) {
+		return function () {
+			if (!n--) {
+				fn();
+			}
+		};
+	}
+
+	function loadMany(modules, fn, paths) {
+		var cb = nthCall(modules.length - 1, fn),
+		    i;
+		for (i = 0; i &lt; modules.length; i++) {
+			load(modules[i], cb, paths[i]);
+		}
+	}
+
+	function loadRec(modules, fn, paths) {
+		if (!modules.length) {
+			fn();
+		}
+		loadMany(modules, function () {
+			var cb = nthCall(modules.length - 1, fn);
+			for (var i = 0; i &lt; modules.length; i++) {
+				var deps = define.deps[modules[i]];
+				var paths = [];
+				for (var j = 0; j &lt; deps.length; j++) {
+					paths.push(define.paths[modules[i]]);
+				}
+				loadRec(deps, cb, paths);
+			}
+		}, paths);
+	}
+
+	function require (modules, fn) {
+		if (!fn) {
+			return wrappedRequire(modules);
+		}
+		loadRec(modules, function () {
+			var instances = [],
+			    i;
+			for (i = 0; i &lt; modules.length; i++) {
+				instances.push(wrappedRequire(modules[i]));
+			}
+			fn.apply(null, instances);
+		}, []);
+	}
+
+	// Make it available to the world.
+	require.waiting = waiting;
+	require.done = done;
+	return require;
+}(require));
+
+var define = (function (wrappedDefine) {
+	var paths = {};
+
+	/**
+	 * Only works if it is called from javascript that is loaded via a a
+	 * script element with src attribute (&lt;script src="...">&lt;/script>)
+	 * and if that element is present in the document when the page
+	 * loads (not injected dynamically into the DOM).
+	 *
+	 * The attribute 'data-pronto-name' is read from the script element
+	 * and used as the module name. Returns null if the attribute
+	 * doesn't exist on the script element.
+	 */
+	function currentModuleInfo() {
+		var scripts = document.getElementsByTagName('script'),
+		    script,
+		    name = null,
+		    src = null,
+		    i;
+		// On IE, it's the first script element that is in interactive readyState.
+		// On other browsers, it's the last script element.
+		for (i = 0; i &lt; scripts.length; i++) {
+			script = scripts[i];
+			if ('interactive' === script.readyState) {
+				break;
+			}
+		}
+		if (script &amp;&amp; script.getAttribute) {
+			if (script.getAttribute('data-pronto-name')) {
+				name = script.getAttribute('data-pronto-name');
+			}
+			if (script.getAttribute('src')) {
+				src = script.getAttribute('src');
+			}
+		}
+		return [name, (src &amp;&amp; src.match(/\//) ? src.replace(/(^|\/)[^\/]+$/, '') : null)];
+	}
+
+	function define(module, deps, fn) {
+		var path,
+		    moduleInfo;
+		if (null != module &amp;&amp; 'string' !== typeof module) {
+			fn = deps;
+			deps = module;
+			moduleInfo = currentModuleInfo();
+			module = moduleInfo[0];
+			path = moduleInfo[1];
+		}
+		if (null == module) {
+			throw "The form define([], ...) without module name must be"
+				+ " loaded via a call to require(), and not by"
+				+ " including it via a script tag in the page."
+				+ " Use require('name') to include the module or"
+				+ " use the form define('name', [], ...) to define"
+				+ " the module.";
+		}
+		define.deps[module] = deps;
+		define.defs[module] = fn;
+		define.paths[module] = path;
+		require.done(module);
+	}
+
+	// Make it available to the world.
+	define.deps = wrappedDefine.deps;
+	define.defs = wrappedDefine.defs;
+	define.paths = paths;
+	return define;
+}(define));
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-accessor.html">accessor</a></li><li><a href="module-Aloha.html">Aloha</a></li><li><a href="module-Arrays.html">Arrays</a></li><li><a href="module-Assert.html">Assert</a></li><li><a href="module-Blocks.html">Blocks</a></li><li><a href="module-Boundaries.html">Boundaries</a></li><li><a href="module-BoundaryMarkers.html">BoundaryMarkers</a></li><li><a href="module-Browsers.html">Browsers</a></li><li><a href="module-Colors.html">Colors</a></li><li><a href="module-Content.html">Content</a></li><li><a href="module-Cursors.html">Cursors</a></li><li><a href="module-Dom.html">Dom</a></li><li><a href="module-DragDrop.html">DragDrop</a></li><li><a href="module-Editables.html">Editables</a></li><li><a href="module-Editing.html">Editing</a></li><li><a href="module-Ephemera.html">Ephemera</a></li><li><a href="module-Events.html">Events</a></li><li><a href="module-Xhtml.html">Xhtml</a></li></ul><h3>Global</h3><ul><li><a href="global.html#define">define</a></li><li><a href="global.html#require">require</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a> on Mon Apr 07 2014 15:20:51 GMT+0400 (MSK)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
